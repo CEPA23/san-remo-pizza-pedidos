@@ -10,7 +10,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem
 } from '@/components/ui/sidebar';
-import { Home, Table, ShoppingCart, MapPin } from 'lucide-react';
+import { Home, Table, ShoppingCart, MapPin, Menu } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 
 const menuItems = [
@@ -18,6 +18,7 @@ const menuItems = [
   { title: 'Mesas', path: '/tables', icon: Table },
   { title: 'Delivery', path: '/delivery', icon: MapPin },
   { title: 'Pedidos', path: '/orders', icon: ShoppingCart },
+  { title: 'Menú', path: '/menu', icon: Menu },
 ];
 
 export function Sidebar() {

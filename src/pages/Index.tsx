@@ -1,13 +1,18 @@
 
-import { Dashboard } from "./Dashboard";
-import { MainLayout } from "@/components/layout/MainLayout";
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const Index = () => {
+export default function Index() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Redirigir a la página del dashboard
+    navigate('/dashboard');
+  }, [navigate]);
+
   return (
-    <MainLayout>
-      <Dashboard />
-    </MainLayout>
+    <div className="flex items-center justify-center min-h-screen">
+      <p>Redirigiendo al dashboard...</p>
+    </div>
   );
-};
-
-export default Index;
+}
