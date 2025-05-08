@@ -10,8 +10,8 @@ export function DeliveryPage() {
 
   const handleOrderSelect = (id: string) => {
     toast({
-      title: `Selected Order ${id}`,
-      description: "Opening order details",
+      title: `Pedido ${id} seleccionado`,
+      description: "Abriendo detalles del pedido",
     });
     // In a real app, we would navigate to the order detail page
   };
@@ -19,17 +19,17 @@ export function DeliveryPage() {
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
-        <h2 className="text-3xl font-bold tracking-tight">Delivery Orders</h2>
+        <h2 className="text-3xl font-bold tracking-tight">Pedidos de Delivery</h2>
         <div className="space-x-2">
-          <Button variant="outline">Filter</Button>
-          <Button>New Order</Button>
+          <Button variant="outline">Filtrar</Button>
+          <Button>Nuevo Pedido</Button>
         </div>
       </div>
       
       <Card>
         <CardHeader>
-          <CardTitle>Active Deliveries</CardTitle>
-          <CardDescription>Track and manage delivery orders</CardDescription>
+          <CardTitle>Deliveries Activos</CardTitle>
+          <CardDescription>Seguimiento y gestión de pedidos para entrega</CardDescription>
         </CardHeader>
         <CardContent>
           <DeliveryOrdersList onOrderSelect={handleOrderSelect} />

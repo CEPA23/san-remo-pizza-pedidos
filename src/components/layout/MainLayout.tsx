@@ -14,7 +14,7 @@ export function MainLayout({ children }: MainLayoutProps) {
         <main className="flex-1 p-4 md:p-6">
           <div className="flex items-center mb-6">
             <SidebarTrigger />
-            <h1 className="text-xl font-bold ml-2">San Remo Pizzeria</h1>
+            <h1 className="text-xl font-bold ml-2">Pizzería San Remo</h1>
           </div>
           {children}
         </main>

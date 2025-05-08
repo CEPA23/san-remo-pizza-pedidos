@@ -18,6 +18,12 @@ const TableItem: React.FC<TableItemProps> = ({ id, status, customers = 0, onClic
     reserved: 'bg-yellow-100 text-yellow-800 hover:bg-yellow-200'
   };
   
+  const statusText = {
+    available: 'Disponible',
+    occupied: 'Ocupada',
+    reserved: 'Reservada'
+  };
+  
   return (
     <Card 
       className={`cursor-pointer transition-all hover:shadow-md ${statusColors[status]}`} 
@@ -25,9 +31,9 @@ const TableItem: React.FC<TableItemProps> = ({ id, status, customers = 0, onClic
     >
       <CardHeader className="p-4 pb-2">
         <div className="flex justify-between items-center">
-          <CardTitle className="text-lg">Table {id}</CardTitle>
+          <CardTitle className="text-lg">Mesa {id}</CardTitle>
           <Badge variant={status === 'available' ? 'outline' : 'default'}>
-            {status.charAt(0).toUpperCase() + status.slice(1)}
+            {statusText[status]}
           </Badge>
         </div>
       </CardHeader>
@@ -35,7 +41,7 @@ const TableItem: React.FC<TableItemProps> = ({ id, status, customers = 0, onClic
         <div className="flex items-center justify-between">
           <div className="flex items-center">
             <Table className="h-5 w-5 mr-2" />
-            <span>{status === 'available' ? 'Free' : `${customers} customers`}</span>
+            <span>{status === 'available' ? 'Libre' : `${customers} comensales`}</span>
           </div>
         </div>
       </CardContent>

@@ -14,10 +14,10 @@ import { Home, Table, ShoppingCart, MapPin } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 
 const menuItems = [
-  { title: 'Dashboard', path: '/', icon: Home },
-  { title: 'Tables', path: '/tables', icon: Table },
+  { title: 'Inicio', path: '/', icon: Home },
+  { title: 'Mesas', path: '/tables', icon: Table },
   { title: 'Delivery', path: '/delivery', icon: MapPin },
-  { title: 'Orders', path: '/orders', icon: ShoppingCart },
+  { title: 'Pedidos', path: '/orders', icon: ShoppingCart },
 ];
 
 export function Sidebar() {
@@ -30,7 +30,7 @@ export function Sidebar() {
           <h1 className="text-2xl font-bold text-white">San Remo</h1>
         </div>
         <SidebarGroup>
-          <SidebarGroupLabel className="text-sidebar-primary">Menu</SidebarGroupLabel>
+          <SidebarGroupLabel className="text-sidebar-primary">Menú</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {menuItems.map((item) => (

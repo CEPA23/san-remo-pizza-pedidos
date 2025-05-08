@@ -24,35 +24,35 @@ export function DeliveryOrdersList({ onOrderSelect }: DeliveryOrdersListProps) {
   const deliveries: DeliveryOrder[] = [
     {
       id: 'D001',
-      customer: 'Maria Garcia',
+      customer: 'María García',
       address: 'Calle Principal 123, Centro',
       items: 2,
       status: 'pending',
-      time: '15 min ago'
+      time: 'hace 15 min'
     },
     {
       id: 'D002',
-      customer: 'Carlos Rodriguez',
+      customer: 'Carlos Rodríguez',
       address: 'Av. Libertador 456, Palermo',
       items: 3,
       status: 'preparing',
-      time: '10 min ago'
+      time: 'hace 10 min'
     },
     {
       id: 'D003',
-      customer: 'Laura Martinez',
+      customer: 'Laura Martínez',
       address: 'Rivadavia 789, Almagro',
       items: 1,
       status: 'out-for-delivery',
-      time: '20 min ago'
+      time: 'hace 20 min'
     },
     {
       id: 'D004',
-      customer: 'Martin Gomez',
-      address: 'San Martin 234, Recoleta',
+      customer: 'Martín Gómez',
+      address: 'San Martín 234, Recoleta',
       items: 4,
       status: 'delivered',
-      time: '35 min ago'
+      time: 'hace 35 min'
     },
   ];
 
@@ -65,10 +65,10 @@ export function DeliveryOrdersList({ onOrderSelect }: DeliveryOrdersListProps) {
     };
     
     const labels = {
-      pending: 'Pending',
-      preparing: 'Preparing',
-      'out-for-delivery': 'Out for Delivery',
-      delivered: 'Delivered'
+      pending: 'Pendiente',
+      preparing: 'En preparación',
+      'out-for-delivery': 'En camino',
+      delivered: 'Entregado'
     };
     
     return <Badge className={styles[status]}>{labels[status]}</Badge>;
@@ -86,7 +86,7 @@ export function DeliveryOrdersList({ onOrderSelect }: DeliveryOrdersListProps) {
         >
           <CardHeader className="p-4 pb-2">
             <div className="flex justify-between items-center">
-              <CardTitle className="text-lg">Order {delivery.id}</CardTitle>
+              <CardTitle className="text-lg">Pedido {delivery.id}</CardTitle>
               {getStatusBadge(delivery.status)}
             </div>
           </CardHeader>
@@ -101,7 +101,7 @@ export function DeliveryOrdersList({ onOrderSelect }: DeliveryOrdersListProps) {
             <div className="flex items-center justify-between mt-3">
               <div className="flex items-center">
                 <ShoppingCart className="h-4 w-4 mr-2" />
-                <span className="text-sm">{delivery.items} items</span>
+                <span className="text-sm">{delivery.items} productos</span>
               </div>
               <span className="text-xs text-gray-500">{delivery.time}</span>
             </div>

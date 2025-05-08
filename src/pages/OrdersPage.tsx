@@ -24,7 +24,7 @@ export function OrdersPage() {
     {
       id: 'O001',
       type: 'dine-in',
-      customer: 'Table 5',
+      customer: 'Mesa 5',
       items: 3,
       total: 45.50,
       status: 'pending',
@@ -33,7 +33,7 @@ export function OrdersPage() {
     {
       id: 'O002',
       type: 'delivery',
-      customer: 'Maria Garcia',
+      customer: 'María García',
       items: 2,
       total: 32.75,
       status: 'preparing',
@@ -42,7 +42,7 @@ export function OrdersPage() {
     {
       id: 'O003',
       type: 'dine-in',
-      customer: 'Table 2',
+      customer: 'Mesa 2',
       items: 4,
       total: 68.20,
       status: 'completed',
@@ -51,7 +51,7 @@ export function OrdersPage() {
     {
       id: 'O004',
       type: 'delivery',
-      customer: 'Carlos Rodriguez',
+      customer: 'Carlos Rodríguez',
       items: 1,
       total: 18.90,
       status: 'delivered',
@@ -60,7 +60,7 @@ export function OrdersPage() {
     {
       id: 'O005',
       type: 'dine-in',
-      customer: 'Table 8',
+      customer: 'Mesa 8',
       items: 2,
       total: 27.50,
       status: 'pending',
@@ -69,7 +69,7 @@ export function OrdersPage() {
     {
       id: 'O006',
       type: 'delivery',
-      customer: 'Laura Martinez',
+      customer: 'Laura Martínez',
       items: 3,
       total: 42.30,
       status: 'preparing',
@@ -79,8 +79,8 @@ export function OrdersPage() {
 
   const handleOrderClick = (id: string) => {
     toast({
-      title: `Selected Order ${id}`,
-      description: "Opening order details",
+      title: `Pedido ${id} seleccionado`,
+      description: "Abriendo detalles del pedido",
     });
     // In a real app, we would navigate to the order detail page
   };
@@ -93,13 +93,20 @@ export function OrdersPage() {
       delivered: 'bg-purple-100 text-purple-800',
     };
     
-    return <Badge className={styles[status]}>{status.charAt(0).toUpperCase() + status.slice(1)}</Badge>;
+    const labels = {
+      pending: 'Pendiente',
+      preparing: 'En preparación',
+      completed: 'Completado',
+      delivered: 'Entregado',
+    };
+    
+    return <Badge className={styles[status]}>{labels[status]}</Badge>;
   };
 
   const getOrderTypeBadge = (type: Order['type']) => {
     return (
       <Badge variant="outline" className={type === 'dine-in' ? 'border-pizza-red text-pizza-red' : 'border-pizza-green text-pizza-green'}>
-        {type === 'dine-in' ? 'Dine-in' : 'Delivery'}
+        {type === 'dine-in' ? 'En local' : 'Delivery'}
       </Badge>
     );
   };
@@ -107,29 +114,29 @@ export function OrdersPage() {
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
-        <h2 className="text-3xl font-bold tracking-tight">Orders</h2>
+        <h2 className="text-3xl font-bold tracking-tight">Pedidos</h2>
         <div className="space-x-2">
-          <Button variant="outline">Filter</Button>
-          <Button>New Order</Button>
+          <Button variant="outline">Filtrar</Button>
+          <Button>Nuevo Pedido</Button>
         </div>
       </div>
       
       <Card>
         <CardHeader>
-          <CardTitle>All Orders</CardTitle>
-          <CardDescription>View and manage all restaurant orders</CardDescription>
+          <CardTitle>Todos los Pedidos</CardTitle>
+          <CardDescription>Ver y gestionar todos los pedidos del restaurante</CardDescription>
         </CardHeader>
         <CardContent>
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Order ID</TableHead>
-                <TableHead>Type</TableHead>
-                <TableHead>Customer</TableHead>
-                <TableHead>Items</TableHead>
+                <TableHead>ID Pedido</TableHead>
+                <TableHead>Tipo</TableHead>
+                <TableHead>Cliente</TableHead>
+                <TableHead>Productos</TableHead>
                 <TableHead className="text-right">Total</TableHead>
-                <TableHead>Status</TableHead>
-                <TableHead>Time</TableHead>
+                <TableHead>Estado</TableHead>
+                <TableHead>Hora</TableHead>
                 <TableHead></TableHead>
               </TableRow>
             </TableHeader>
@@ -144,7 +151,7 @@ export function OrdersPage() {
                   <TableCell>{getStatusBadge(order.status)}</TableCell>
                   <TableCell>{order.time}</TableCell>
                   <TableCell>
-                    <Button variant="ghost" size="sm">View</Button>
+                    <Button variant="ghost" size="sm">Ver</Button>
                   </TableCell>
                 </TableRow>
               ))}

@@ -10,8 +10,8 @@ export function TablesPage() {
 
   const handleTableSelect = (id: number) => {
     toast({
-      title: `Selected Table ${id}`,
-      description: "Opening table details",
+      title: `Mesa ${id} seleccionada`,
+      description: "Abriendo detalles de la mesa",
     });
     // In a real app, we would navigate to the table detail page
   };
@@ -19,17 +19,17 @@ export function TablesPage() {
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
-        <h2 className="text-3xl font-bold tracking-tight">Tables</h2>
+        <h2 className="text-3xl font-bold tracking-tight">Mesas</h2>
         <div className="space-x-2">
-          <Button variant="outline">Filter</Button>
-          <Button>Add Table</Button>
+          <Button variant="outline">Filtrar</Button>
+          <Button>Añadir Mesa</Button>
         </div>
       </div>
       
       <Card>
         <CardHeader>
-          <CardTitle>Tables Overview</CardTitle>
-          <CardDescription>Manage restaurant tables and dine-in orders</CardDescription>
+          <CardTitle>Resumen de Mesas</CardTitle>
+          <CardDescription>Gestiona las mesas del restaurante y pedidos en local</CardDescription>
         </CardHeader>
         <CardContent>
           <TableGrid onTableSelect={handleTableSelect} />
