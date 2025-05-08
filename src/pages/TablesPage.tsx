@@ -13,7 +13,21 @@ export function TablesPage() {
       title: `Mesa ${id} seleccionada`,
       description: "Abriendo detalles de la mesa",
     });
-    // In a real app, we would navigate to the table detail page
+    // En una app real, navegaríamos a la página de detalles de la mesa
+  };
+
+  const handleAddTable = () => {
+    toast({
+      title: "Añadir Mesa",
+      description: "Función para añadir nueva mesa",
+    });
+  };
+
+  const handleFilter = () => {
+    toast({
+      title: "Filtrar Mesas",
+      description: "Función para filtrar mesas",
+    });
   };
 
   return (
@@ -21,8 +35,8 @@ export function TablesPage() {
       <div className="flex justify-between items-center">
         <h2 className="text-3xl font-bold tracking-tight">Mesas</h2>
         <div className="space-x-2">
-          <Button variant="outline">Filtrar</Button>
-          <Button>Añadir Mesa</Button>
+          <Button variant="outline" onClick={handleFilter}>Filtrar</Button>
+          <Button onClick={handleAddTable}>Añadir Mesa</Button>
         </div>
       </div>
       
